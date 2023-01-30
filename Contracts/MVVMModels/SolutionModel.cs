@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Contracts.MVVMModels
 {
+	[Serializable]
 	public class SolutionModel:IDiagramElementModel
 	{
 		public string SolutionName { get; set; }
