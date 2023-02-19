@@ -9,14 +9,17 @@ namespace Contracts.MVVMModels
 	[Serializable]
 	public class SolutionModel:IDiagramElementModel
 	{
-		public string SolutionName { get; set; }
-		public string TargetSolutionClassName { get; set; }
+		public string SolutionName { get; set; } = "";
+		public string SolutionFileName
+		{
+			get { return SolutionName + ".smsln"; }
+		}
 		public StrategySetModel? Entry { get; set; }
 		public List<IDiagramElementModel> SolutionItems { get; set; } = new();
-		public SolutionModel(string solutionName, string targetSolutionClassName)
+		public SolutionModel(string solutionName)
 		{
 			SolutionName = solutionName;
-			TargetSolutionClassName = targetSolutionClassName;
 		}
+		public SolutionModel() { }
 	}
 }

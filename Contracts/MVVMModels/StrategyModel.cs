@@ -8,13 +8,14 @@ namespace Contracts.MVVMModels
 {
 	public class StrategyModel
 	{
-		public string StrategyName { get; set; }
-		public string StrategyClassName { get; set; }
+		public string StrategyName { get; set; } = "";
+		public string StrategyClassName { get; set; } = "";
 		public IDiagramElementModel? LinkingTo { get; set; }
 		public StrategyModel(string strategyName, string strategyClassName)
 		{
 			StrategyName = strategyName;
 			StrategyClassName = strategyClassName;
 		}
+		public StrategyModel() { }
 	}
 }

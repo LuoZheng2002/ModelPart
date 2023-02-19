@@ -11,7 +11,7 @@ namespace Contracts.MVVMModels
 	public class StrategySetModel:IDiagramElementModel
 	{
 		public Point CanvasPos { get; set; }
-		public string StrategySetName { get; set; }
+		public string StrategySetName { get; set; } = "";
 		public StrategySetType Type { get; set; }
 		public List<StrategyModel> Strategies { get; set; } = new();
 		public StrategySetModel(string strategySetName, StrategySetType type)
@@ -19,5 +19,6 @@ namespace Contracts.MVVMModels
 			StrategySetName= strategySetName;
 			Type = type;
 		}
+		public StrategySetModel(){}
 	}
 }
