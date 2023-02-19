@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Contracts.MVVMModels
 {
-	public class SwitchModel:IDiagramElementModel
+	public class SwitchModel:DiagramElementModel
 	{
 		public Point CanvasPos { get; set; }
 		public string StatementName { get; set; }

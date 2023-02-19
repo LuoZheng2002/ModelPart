@@ -23,6 +23,9 @@ namespace Contracts.MVVMModels
 			VisualStudioSolutionName= visualStudioSolutionName;
 			MainSolutionModel  = new SolutionModel("main");
 			SolutionModels.Add(MainSolutionModel);
+			//test
+			SolutionModel testSolutionModel = new SolutionModel("test");
+			SolutionModels.Add(testSolutionModel);
 		}
 		public ProjectModel()
 		{}

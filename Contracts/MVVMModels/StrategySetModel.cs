@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Contracts.MVVMModels
 {
-	public class StrategySetModel:IDiagramElementModel
+	public class StrategySetModel:DiagramElementModel
 	{
 		public Point CanvasPos { get; set; }
 		public string StrategySetName { get; set; } = "";

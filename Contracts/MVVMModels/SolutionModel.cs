@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace Contracts.MVVMModels
 {
-	[Serializable]
-	public class SolutionModel:IDiagramElementModel
+	public class SolutionModel
 	{
 		public string SolutionName { get; set; } = "";
 		public string SolutionFileName
 		{
 			get { return SolutionName + ".smsln"; }
 		}
-		public StrategySetModel? Entry { get; set; }
-		public List<IDiagramElementModel> SolutionItems { get; set; } = new();
+		public List<DiagramElementModel> DiagramItemModels { get; set; } = new();
 		public SolutionModel(string solutionName)
 		{
 			SolutionName = solutionName;

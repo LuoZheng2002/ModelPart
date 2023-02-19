@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Contracts.MVVMModels
 {
-	public class IfModel
+	public class IfModel:DiagramElementModel
 	{
 	}
 }
