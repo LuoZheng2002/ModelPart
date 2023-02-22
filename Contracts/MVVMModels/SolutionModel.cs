@@ -19,5 +19,9 @@ namespace Contracts.MVVMModels
 			SolutionName = solutionName;
 		}
 		public SolutionModel() { }
+		public void OnDiagramItemDestroy(DiagramElementModel model)
+		{
+			DiagramItemModels.Remove(model);
+		}
 	}
 }

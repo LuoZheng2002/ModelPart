@@ -11,6 +11,7 @@ namespace Contracts.MVVMModels
 		public string StrategyName { get; set; } = "";
 		public string StrategyClassName { get; set; } = "";
 		public DiagramElementModel? LinkingTo { get; set; }
+		public event Action<DiagramElementModel>? Destroy;
 		public StrategyModel(string strategyName, string strategyClassName)
 		{
 			StrategyName = strategyName;

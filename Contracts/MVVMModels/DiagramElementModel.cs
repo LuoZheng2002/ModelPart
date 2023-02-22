@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -13,6 +14,5 @@ namespace Contracts.MVVMModels
 	[JsonDerivedType(typeof(StartModel), "StartModel")]
 	public class DiagramElementModel
 	{
-		
 	}
 }

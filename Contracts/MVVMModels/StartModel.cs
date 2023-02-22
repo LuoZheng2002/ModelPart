@@ -15,5 +15,6 @@ namespace Contracts.MVVMModels
 		{
 			CanvasPos = canvasPos;
 		}
+		
 	}
 }
