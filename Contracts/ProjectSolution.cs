@@ -9,11 +9,15 @@ namespace Contracts
 {
 	public class ProjectSolution:ExecutableBase
 	{
-		public List<Solution> solutions { get; set; }
-		public Solution MainSolution { get; set; }
+		public List<Solution> solutions { get; set; } = new();
+		public Solution MainSolution { get; set; } = new();
 		public override MoveInfo Execute(GameModelBase gameModel)
 		{
 			return MainSolution.Execute(gameModel);
 		}
-	}
+        public ProjectSolution()
+        {
+            
+        }
+    }
 }

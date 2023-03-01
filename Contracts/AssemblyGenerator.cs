@@ -11,22 +11,9 @@ namespace Contracts
 	{
 		public static string GenerateCode(ProjectModel projectModel)
 		{
-			string result = @"
-Using System;
+			string result = "";
+			result += "using System;\n";
 
-namespace Contracts
-{
-	public class GoGameProjSlnFuncProvider: ProjSlnFuncProviderBase
-	{
-		public override ProjectSolution GetSolution()
-		{
-			ProjectSolution projectSolution = new ProjectSolution();
-			projectSolution.StrategySets.Add(...) //根据projectModel中的信息填充
-			// ...
-		}
-	}
-}
-			";
 			return result;
 		}
 	}

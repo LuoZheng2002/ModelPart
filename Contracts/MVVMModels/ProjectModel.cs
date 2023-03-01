@@ -15,6 +15,7 @@ namespace Contracts.MVVMModels
 		public string ProjectDirectory { get; set; } = "";
 		public string VisualStudioSolutionName { get; set; } = ""; 
 		public List<string> SolutionNames { get; set; } = new();
+		public string CurrentSolutionFileName { get; set; } = "main.smsln";
 		public ProjectModel(string projectName, string projectFolder, string projectDirectory, string visualStudioSolutionName)
 		{
 			ProjectName = projectName;

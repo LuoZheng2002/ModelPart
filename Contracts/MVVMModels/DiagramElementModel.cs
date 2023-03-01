@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 namespace Contracts.MVVMModels
 {
 	[JsonDerivedType(typeof(DiagramElementModel), "Base")]
+	[JsonDerivedType(typeof(StartModel), "StartModel")]
 	[JsonDerivedType(typeof(StrategySetModel), "StrategySetModel")]
 	[JsonDerivedType(typeof(IfModel), "IfModel")]
 	[JsonDerivedType(typeof(SwitchModel), "SwitchModel")]
-	[JsonDerivedType(typeof(StartModel), "StartModel")]
+	[JsonDerivedType(typeof(SimulationModel), "SimulationModel")]
 	public class DiagramElementModel
 	{
 	}
