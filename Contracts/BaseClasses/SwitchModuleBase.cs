@@ -8,7 +8,7 @@ namespace Contracts.BaseClasses
 {
 	public abstract class SwitchModuleBase: ExecutableBase
 	{
-		public Dictionary<Func<GameModelBase, bool>, ExecutableBase> CaseToConnection { get; set;}
+		public Dictionary<Func<GameModelBase, bool>, ExecutableBase> CaseToConnection { get; set; } = new();
 		public override MoveInfo Execute(GameModelBase gameModel)
 		{
 			MoveInfo moveInfo;

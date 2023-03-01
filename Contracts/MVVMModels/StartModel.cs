@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Contracts.MVVMModels
 {
-	public class StartModel:DiagramElementModel
+	public class StartModel:DiagramElementModel,ILinkSource
 	{
 		public Point CanvasPos { get; set; }
 		public DiagramElementModel? LinkingTo { get; set; }
@@ -15,6 +15,9 @@ namespace Contracts.MVVMModels
 		{
 			CanvasPos = canvasPos;
 		}
-		
+		// for deserialization
+		public StartModel()
+		{
+		}
 	}
 }

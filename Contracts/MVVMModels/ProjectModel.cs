@@ -8,7 +8,6 @@ using System.Windows.Documents.Serialization;
 
 namespace Contracts.MVVMModels
 {
-	[Serializable]
 	public class ProjectModel
 	{
 		public string ProjectName { get; set; } = "";
@@ -24,6 +23,8 @@ namespace Contracts.MVVMModels
 			VisualStudioSolutionName= visualStudioSolutionName;
 		}
 		public ProjectModel()
-		{}
+		{
+
+		}
 	}
 }
