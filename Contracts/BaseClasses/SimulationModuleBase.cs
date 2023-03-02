@@ -8,10 +8,10 @@ namespace Contracts.BaseClasses
 {
 	public abstract class SimulationModuleBase:ExecutableBase
 	{
-		public ExecutableBase ConnectedToTrue { get; set; }
-		public ExecutableBase ConnectedToFalse { get; set; }
-		public Solution Player1AI { get; set; }
-		public Solution Player2AI { get; set; }
+		public ExecutableBase ConnectedToPlayer1Wins { get; set; }
+		public ExecutableBase ConnectedToPlayer2Wins { get; set; }
+		public Solution Player1Solution { get; set; }
+		public Solution Player2Solution { get; set; }
 
 	}
 }

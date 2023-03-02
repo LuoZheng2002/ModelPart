@@ -13,15 +13,16 @@ namespace Contracts.MVVMModels
 		public string ProjectName { get; set; } = "";
 		public string ProjectFolder { get; set; } = "";
 		public string ProjectDirectory { get; set; } = "";
-		public string VisualStudioSolutionName { get; set; } = ""; 
+		public string VSCodeFolderName { get; set; } = "";
+		public string VSCodeFolder => ProjectFolder + "/" + VSCodeFolderName;
 		public List<string> SolutionNames { get; set; } = new();
 		public string CurrentSolutionFileName { get; set; } = "main.smsln";
-		public ProjectModel(string projectName, string projectFolder, string projectDirectory, string visualStudioSolutionName)
+		public ProjectModel(string projectName, string projectFolder, string projectDirectory, string vsCodeFolderName)
 		{
 			ProjectName = projectName;
 			ProjectFolder = projectFolder;
 			ProjectDirectory = projectDirectory;
-			VisualStudioSolutionName= visualStudioSolutionName;
+			VSCodeFolderName= vsCodeFolderName;
 		}
 		public ProjectModel()
 		{
