@@ -9,6 +9,7 @@ namespace Contracts.MVVMModels
 {
 	public class SimulationModel:DiagramElementModel
 	{
+		public override string ClassName => SimulationModelClassName;
 		public Point CanvasPos { get; set; }
 		public string SimulationModuleName { get; set; } = "";
 		public string SimulationDescription { get; set; } = "";

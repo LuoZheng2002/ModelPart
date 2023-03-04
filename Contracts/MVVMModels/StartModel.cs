@@ -9,6 +9,7 @@ namespace Contracts.MVVMModels
 {
 	public class StartModel:DiagramElementModel,ILinkSource
 	{
+		public override string ClassName => "You'll never get this:)";
 		public Point CanvasPos { get; set; }
 		public DiagramElementModel? LinkingTo { get; set; }
 		public StartModel(Point canvasPos)

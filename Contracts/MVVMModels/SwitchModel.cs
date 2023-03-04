@@ -9,6 +9,7 @@ namespace Contracts.MVVMModels
 {
 	public class SwitchModel:DiagramElementModel
 	{
+		public override string ClassName => SwitchModelClassName;
 		public Point CanvasPos { get; set; }
 		public string SwitchModuleName { get; set; } = "";
 		public string SwitchTargetText { get; set; } = "";

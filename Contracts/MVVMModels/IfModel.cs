@@ -9,6 +9,7 @@ namespace Contracts.MVVMModels
 {
 	public class IfModel:DiagramElementModel
 	{
+		public override string ClassName => IfModelClassName;
 		public Point CanvasPos { get; set; }
 		public string IfModuleName { get; set; } = "";
 		public string IfStatementText { get; set; } = "";

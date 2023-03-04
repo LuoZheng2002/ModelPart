@@ -16,5 +16,6 @@ namespace Contracts.MVVMModels
 	[JsonDerivedType(typeof(SimulationModel), "SimulationModel")]
 	public class DiagramElementModel
 	{
+		public virtual string ClassName => throw new NotImplementedException();
 	}
 }

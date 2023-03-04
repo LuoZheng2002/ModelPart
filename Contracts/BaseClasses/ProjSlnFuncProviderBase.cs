@@ -9,5 +9,10 @@ namespace Contracts.BaseClasses
 	public abstract class ProjSlnFuncProviderBase
 	{
 		public abstract ProjectSolution ProjectSolution { get; }
+		public MoveInfo Execute(GameModelBase gameModel)
+		{
+			MoveInfo moveInfo = ProjectSolution.MainSolution.ExecuteModule(gameModel, null);
+			return moveInfo;
+		}
 	}
 }
