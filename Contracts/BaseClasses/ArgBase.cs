@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace Contracts.BaseClasses
 {
-	public abstract class JudgeInfoBase
+	public class ArgBase
 	{
-		public bool Succeeded { get; set; }
-		public JudgeInfoBase(bool succeeded)
-		{
-			Succeeded = succeeded;
-		}
 	}
 }

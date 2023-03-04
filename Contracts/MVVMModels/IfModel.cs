@@ -17,12 +17,9 @@ namespace Contracts.MVVMModels
 		public CaseModel TrueCaseModel { get; set;} = new();
 		public CaseModel FalseCaseModel { get; set;} = new();
 
-		public IfModel(Point canvasPos, string ifModuleName, string ifStatementName, string ifModelClassName)
+		public IfModel(Point canvasPos)
 		{
 			CanvasPos = canvasPos;
-			IfModuleName = ifModuleName;
-			IfStatementText = ifStatementName;
-			IfModelClassName = ifModelClassName;
 			TrueCaseModel = new CaseModel("__TRUE__", "True");
 			FalseCaseModel = new CaseModel("__FALSE__", "False");
 		}

@@ -9,6 +9,6 @@ namespace Contracts.Interfaces
 {
 	public interface IExecutable
 	{
-		public MoveInfo Execute(GameModelBase gameModel, TriggerInfoBase? triggerInfo, JudgeInfoBase? judgeInfo);
+		public MoveInfo Execute(GameModelBase gameModel, ArgBase? arg);
 	}
 }

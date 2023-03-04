@@ -14,19 +14,19 @@ namespace Contracts.BaseClasses
         {
             _linkingTo= executable;
         }
-        public override MoveInfo Execute(GameModelBase gameModel)
+        public override MoveInfo ExecuteModule(GameModelBase gameModel, ArgBase? arg)
         {
-            List<TriggerInfoBase> triggerInfos = new();
+            List<ArgBase> triggerArgs = new();
             bool isTriggerable = false;
             bool isJudgeable = false;
             bool isExecutable = false;
-			List<Tuple<TriggerInfoBase?, JudgeInfoBase?>> triggerJudgeTuples = new();
+            List<ArgBase> args = new();
             MoveInfo? result;
 			if (this is ITriggerable)
             {
                 isTriggerable= true;
                 ITriggerable triggerable= (ITriggerable)this;
-                triggerInfos = triggerable.Trigger(gameModel);
+                triggerable.Trigger(gameModel, arg, out triggerArgs);
             }
             if (this is IJudgeable)
             {
@@ -34,29 +34,29 @@ namespace Contracts.BaseClasses
                 IJudgeable judgeable = (IJudgeable)this;
                 if (isTriggerable)
                 {
-                    foreach(var triggerInfo in triggerInfos)
+                    foreach(var triggerArg in triggerArgs)
                     {
-                        JudgeInfoBase judgeInfo = judgeable.Judge(gameModel, triggerInfo);
-                        if (judgeInfo.Succeeded)
+                        bool succeeded = judgeable.Judge(gameModel, triggerArg, out ArgBase judgeArg);
+                        if (succeeded)
                         {
-                            triggerJudgeTuples.Add(new Tuple<TriggerInfoBase?, JudgeInfoBase?>(triggerInfo, judgeInfo));
+                            args.Add(judgeArg);
                         }
 					}
                 }
                 else
                 {
-                    JudgeInfoBase judgeInfo = judgeable.Judge(gameModel, null);
-                    if (judgeInfo.Succeeded)
+                    bool succeeded = judgeable.Judge(gameModel, null, out ArgBase judgeArg);
+                    if (succeeded)
                     {
-                        triggerJudgeTuples.Add(new Tuple<TriggerInfoBase?, JudgeInfoBase?>(null, judgeInfo));
+                        args.Add(judgeArg);
                     }
                 }
             }
             else
             {
-                foreach(var triggerInfo in triggerInfos)
+                foreach(var triggerArg in triggerArgs)
                 {
-                    triggerJudgeTuples.Add(new Tuple<TriggerInfoBase?, JudgeInfoBase?>(triggerInfo, null));
+                    args.Add(triggerArg);
                 }
             }
             if (this is IExecutable)
@@ -64,9 +64,9 @@ namespace Contracts.BaseClasses
                 isExecutable= true;
                 IExecutable executable = (IExecutable)this;
 				List<MoveInfo> results = new();
-				foreach (var triggerJudgeTuple in triggerJudgeTuples)
+				foreach (var oneArg in args)
                 {
-                    MoveInfo moveInfo = executable.Execute(gameModel, triggerJudgeTuple.Item1, triggerJudgeTuple.Item2);
+                    MoveInfo moveInfo = executable.Execute(gameModel, oneArg);
                     if (moveInfo.Succeeded)
                     {
                         results.Add(moveInfo);
@@ -87,7 +87,23 @@ namespace Contracts.BaseClasses
                 {
                     throw new Exception($"Strategy '{this.GetType()}' neither implements IExecutable not links to an executable.");
                 }
-                result = _linkingTo!.Execute(gameModel);
+				List<MoveInfo> results = new();
+				foreach (var oneArg in args)
+				{
+					MoveInfo moveInfo = _linkingTo!.ExecuteModule(gameModel, oneArg);
+					if (moveInfo.Succeeded)
+					{
+						results.Add(moveInfo);
+					}
+				}
+				if (results.Count > 0)
+				{
+					result = results.MaxBy(moveInfo => moveInfo.Rating);
+				}
+				else
+				{
+					result = MoveInfo.Failed;
+				}
             }
             return result!;
         }

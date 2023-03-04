@@ -8,6 +8,6 @@ namespace Contracts.BaseClasses
 {
 	public abstract class ExecutableBase
 	{
-		public abstract MoveInfo Execute(GameModelBase gameModel);
+		public abstract MoveInfo ExecuteModule(GameModelBase gameModel, ArgBase? arg);
 	}
 }

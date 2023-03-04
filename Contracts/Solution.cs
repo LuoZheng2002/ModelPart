@@ -9,14 +9,14 @@ namespace Contracts
 {
 	public class Solution: ExecutableBase
 	{
-		public ExecutableBase StartExecutable { get; set; }
-		public List<StrategySet> strategySets { get; set; }
-		public List<IfModuleBase> IfModules { get; set; }
-		public List<SwitchModuleBase> SwitchModules { get; set; }
-		public List<SimulationModuleBase> SimulationModules { get; set; }
-		public override MoveInfo Execute(GameModelBase gameModel)
+		public ExecutableBase? StartExecutable { get; set; }
+		public List<StrategySet> StrategySets{ get; set; } = new();
+		public List<IfModuleBase> IfModules { get; set; } = new();
+		public List<SwitchModuleBase> SwitchModules { get; set; } = new();
+		public List<SimulationModuleBase> SimulationModules { get; set; } = new();
+		public override MoveInfo ExecuteModule(GameModelBase gameModel, ArgBase? arg)
 		{
-			return StartExecutable.Execute(gameModel);
+			return StartExecutable!.ExecuteModule(gameModel, arg);
 		}
 	}
 }

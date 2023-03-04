@@ -14,12 +14,9 @@ namespace Contracts.MVVMModels
 		public string SwitchTargetText { get; set; } = "";
 		public string SwitchModelClassName { get; set; } = "";
 		public List<CaseModel> CaseModels { get; set; } = new();
-		public SwitchModel(Point canvasPos, string switchModuleName, string switchTargetText, string switchClassName)
+		public SwitchModel(Point canvasPos)
 		{
 			CanvasPos = canvasPos;
-			SwitchModuleName = switchModuleName;
-			SwitchTargetText = switchTargetText;
-			SwitchModelClassName = switchClassName;
 		}
 		public SwitchModel() { }
 	}

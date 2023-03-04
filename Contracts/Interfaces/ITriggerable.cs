@@ -9,6 +9,6 @@ namespace Contracts.Interfaces
 {
     public interface ITriggerable
     {
-        public List<TriggerInfoBase> Trigger(GameModelBase gameModel);
+        public void Trigger(GameModelBase gameModel, ArgBase? arg, out List<ArgBase> triggerArgs);
     }
 }

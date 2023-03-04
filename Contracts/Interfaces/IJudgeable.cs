@@ -9,6 +9,6 @@ namespace Contracts.Interfaces
 {
 	public interface IJudgeable
 	{
-		public JudgeInfoBase Judge(GameModelBase gameModel, TriggerInfoBase? triggerInfo);
+		public bool Judge(GameModelBase gameModel, ArgBase? arg, out ArgBase judgeArg);
 	}
 }

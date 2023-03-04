@@ -14,9 +14,8 @@ namespace Contracts.MVVMModels
 		public string StrategySetName { get; set; } = "";
 		public StrategySetType Type { get; set; }
 		public List<StrategyModel> Strategies { get; set; } = new();
-		public StrategySetModel(string strategySetName, StrategySetType type, Point canvasPos)
+		public StrategySetModel(StrategySetType type, Point canvasPos)
 		{
-			StrategySetName= strategySetName;
 			Type = type;
 			CanvasPos = canvasPos;
 		}

@@ -10,12 +10,12 @@ namespace Contracts
 {
 	public class StrategySet:ExecutableBase
 	{
-		private MoveInfo ExecuteParallel(GameModelBase gameModel)
+		private MoveInfo ExecuteParallel(GameModelBase gameModel, ArgBase? arg)
 		{
 			List<MoveInfo> results = new();
 			foreach (var strategy in Strategies)
 			{
-				MoveInfo moveInfo = strategy.Execute(gameModel);
+				MoveInfo moveInfo = strategy.ExecuteModule(gameModel, arg);
 				results.Add(moveInfo);
 			}
 			MoveInfo? result;
@@ -29,11 +29,11 @@ namespace Contracts
 			}
 			return result!;
 		}
-		private MoveInfo ExecuteHierarchical(GameModelBase gameModel)
+		private MoveInfo ExecuteHierarchical(GameModelBase gameModel, ArgBase? arg)
 		{
 			foreach (var strategy in Strategies)
 			{
-				MoveInfo moveInfo = strategy.Execute(gameModel);
+				MoveInfo moveInfo = strategy.ExecuteModule(gameModel, arg);
 				if (moveInfo.Succeeded)
 				{
 					return moveInfo;
@@ -47,15 +47,15 @@ namespace Contracts
 		{
 			Strategies.Add(strategy);
 		}
-		public override MoveInfo Execute(GameModelBase gameModel)
+		public override MoveInfo ExecuteModule(GameModelBase gameModel, ArgBase? arg)
 		{
 			if (Type==StrategySetType.Parallel)
 			{
-				return ExecuteParallel(gameModel);
+				return ExecuteParallel(gameModel, arg);
 			}
 			else
 			{
-				return ExecuteHierarchical(gameModel);
+				return ExecuteHierarchical(gameModel, arg);
 			}
 		}
 	}

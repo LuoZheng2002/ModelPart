@@ -8,6 +8,6 @@ namespace Contracts.BaseClasses
 {
 	public abstract class ProjSlnFuncProviderBase
 	{
-		public abstract ProjectSolution GetSolution();
+		public abstract ProjectSolution ProjectSolution { get; }
 	}
 }
