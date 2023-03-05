@@ -17,6 +17,8 @@ namespace Contracts.MVVMModels
 		public string VSCodeFolder => ProjectFolder + "/" + VSCodeFolderName;
 		public List<string> SolutionNames { get; set; } = new();
 		public string CurrentSolutionFileName { get; set; } = "main.smsln";
+		public string? TestAssemblyPath { get; set; }
+		public string? TestAssemblyClassFullName { get; set; }
 		public ProjectModel(string projectName, string projectFolder, string projectDirectory, string vsCodeFolderName)
 		{
 			ProjectName = projectName;
