@@ -16,5 +16,11 @@ namespace Contracts.Communication
 		public const string TestAssemblyPath = "testassemblypath";
 		public const string TestAssemblyClassFullName = "testassemblyclassfullname";
 		public const string ConsoleInput = "consoleinput";
+		public const string ConsoleOutput = "consoleoutput";
+		public const string Start = "start";
+		public const string SendMessage = "sendmessage";
+		public const string UpdateImage = "updateimage";
+		public const string LeftButtonDown = "leftbuttondown";
+		public const string RightButtonDown = "rightbuttondown";
 	}
 }
