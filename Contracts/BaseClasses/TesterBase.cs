@@ -30,7 +30,6 @@ namespace Contracts.BaseClasses
 			byte[][][] jaggedData = data.ToJaggerArray();
 			string serializedData = Serializer.Serialize(jaggedData);
 			Console.WriteLine(TextConvention.UpdateImage + " " +  serializedData);
-			int[,] a;
 		}
 	}
 }
